@@ -34,7 +34,7 @@ class Formulario extends Component{
             required
           />
         </div>
-        <Botao></Botao>
+        <Botao>Adicionar</Botao>
       </form>
     )
   }
