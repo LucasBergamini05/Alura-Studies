@@ -2,7 +2,7 @@ import { Component, ReactNode } from "react";
 import Botao from "../Botao";
 import style from './Formulario.module.scss';
 
-class Formulario extends Component{
+export default class Formulario extends Component{
   render(): ReactNode {
     return (
       <form className={style.novaTarefa}>
@@ -39,5 +39,3 @@ class Formulario extends Component{
     )
   }
 }
-
-export default Formulario

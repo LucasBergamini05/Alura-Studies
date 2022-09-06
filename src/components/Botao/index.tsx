@@ -5,7 +5,7 @@ interface IProps {
   children:  React.ReactNode;
 }
 
-class Botao extends Component<IProps> {
+export default class Botao extends Component<IProps> {
   render(): ReactNode {
     return (
       <button className={style.botao}>
@@ -14,5 +14,3 @@ class Botao extends Component<IProps> {
     );
   }
 }
-
-export default Botao;
