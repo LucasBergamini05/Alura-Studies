@@ -1,10 +1,10 @@
 import { Component, ReactNode } from "react";
-import tarefa from '../../types/tarefa';
+import Itarefa from '../../types/tarefa';
 import Botao from "../Botao";
 import style from './Formulario.module.scss';
 import { v4 as generateId } from 'uuid';
 
-export default class Formulario extends Component<{setTarefas: React.Dispatch<React.SetStateAction<tarefa[]>>}>{
+export default class Formulario extends Component<{setTarefas: React.Dispatch<React.SetStateAction<Itarefa[]>>}>{
   state = {
     tarefa: "",
     tempo: "00:00:00"

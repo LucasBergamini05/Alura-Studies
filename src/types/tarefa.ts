@@ -1,4 +1,4 @@
-export default interface tarefa{
+export default interface Itarefa{
   tarefa: string,
   tempo: string,
   complete: boolean,
