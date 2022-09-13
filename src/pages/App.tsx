@@ -19,9 +19,8 @@ export default function App() {
       <Formulario setTarefas={setTarefas}/>
       <Lista 
         tarefas={tarefas}
-        selecionaTarefa={selecionaTarefa}
-      />
-      <Cronometro/>
+        selecionaTarefa={selecionaTarefa}/>
+      <Cronometro selecionado={selecionado}/>
     </div>
   );
 }
