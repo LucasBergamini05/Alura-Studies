@@ -10,8 +10,7 @@ export default function Item({item, selecionaTarefa}: props){
   return (
     <li 
     className={`${style.item} ${item.selecionado ? style.itemSelecionado : ''}`}
-    onClick={() => item.selecionado ? selecionaTarefa(undefined) : selecionaTarefa(item)}
-    >
+    onClick={() => item.selecionado ? selecionaTarefa(undefined) : selecionaTarefa(item)}>
       <h3> {item.tarefa} </h3>
       <span> {item.tempo} </span>
     </li>
