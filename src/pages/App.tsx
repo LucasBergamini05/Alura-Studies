@@ -9,9 +9,9 @@ export default function App() {
   const [tarefas, setTarefas] = useState<Itarefa[]>([]);
   const [selecionado, setSelecionado] = useState<Itarefa>();
 
-  function selecionaTarefa(tarefaSelecionada: Itarefa){
+  function selecionaTarefa(tarefaSelecionada: Itarefa | undefined){
     setSelecionado(tarefaSelecionada);
-    setTarefas(tarefas => tarefas.map(tarefa => ({...tarefa, selecionado: tarefa.id === tarefaSelecionada.id ? true : false})));
+    setTarefas(tarefas => tarefas.map(tarefa => ({...tarefa, selecionado: tarefa.id === tarefaSelecionada?.id ? true : false})));
   }
 
   return (

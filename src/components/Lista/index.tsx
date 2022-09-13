@@ -4,7 +4,7 @@ import style from './Lista.module.scss';
 
 interface props {
   tarefas: Itarefa[];
-  selecionaTarefa: (tarefaSelecionada: Itarefa) => void
+  selecionaTarefa: (tarefaSelecionada: Itarefa | undefined) => void
 }
 
 export default function Lista({ tarefas, selecionaTarefa}: props){
