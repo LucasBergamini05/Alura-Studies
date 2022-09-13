@@ -19,8 +19,8 @@ export default class Formulario extends Component<{setTarefas: React.Dispatch<Re
         ...tarefasAntigas,
         {
           ...this.state,
-          complete: false,
-          selected: false,
+          completo: false,
+          selecionado: false,
           id: generateId()
         }
       ]

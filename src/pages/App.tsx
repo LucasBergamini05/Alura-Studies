@@ -11,6 +11,7 @@ export default function App() {
 
   function selecionaTarefa(tarefaSelecionada: Itarefa){
     setSelecionado(tarefaSelecionada);
+    setTarefas(tarefas => tarefas.map(tarefa => ({...tarefa, selecionado: tarefa.id === tarefaSelecionada.id ? true : false})));
   }
 
   return (

@@ -9,7 +9,7 @@ interface props {
 export default function Item({item, selecionaTarefa}: props){
   return (
     <li 
-    className={style.item}
+    className={`${style.item} ${item.selecionado ? style.itemSelecionado : ''}`}
     onClick={() => selecionaTarefa(item)}
     >
       <h3> {item.tarefa} </h3>
