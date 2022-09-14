@@ -15,7 +15,8 @@ export default function Cronometro({selecionado, finalizaTarefa}: Props) {
 
   useEffect(()=>{
     if(selecionado?.tempo) 
-      setTempo(TimeToSeconds(selecionado?.tempo));
+      return setTempo(TimeToSeconds(selecionado?.tempo));
+    setTempo(0);
   }, [selecionado]);
 
   function regressiva(tempo: number = 0){
