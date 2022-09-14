@@ -10,21 +10,29 @@ interface Props {
 }
 
 export default function Cronometro({selecionado}: Props) {
-  const [tempo, setTempo] = useState<number>()
+  const [tempo, setTempo] = useState<number>();
 
   useEffect(()=>{
     if(selecionado?.tempo) 
-      setTempo(TimeToSeconds(selecionado?.tempo))
-  }, [selecionado])
+      setTempo(TimeToSeconds(selecionado?.tempo));
+  }, [selecionado]);
+
+  function regressiva(tempo: number = 0){
+    setTimeout(() => {
+      if(tempo > 0) {
+        setTempo(--tempo);
+        regressiva(tempo)
+      }
+    }, 1000);
+  }
 
   return (
     <div className={style.cronometro}>
-      <p>{Number(tempo)/60} minutos</p>
       <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
       <div className={style.relogioWrapper}>
-        <Relogio/>
+        <Relogio tempo={tempo}/>
       </div>
-      <Botao>
+      <Botao onClick={()=>{regressiva(tempo)}}>
         Começar
       </Botao>
     </div>

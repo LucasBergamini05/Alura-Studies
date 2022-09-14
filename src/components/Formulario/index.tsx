@@ -66,7 +66,7 @@ export default class Formulario extends Component<{setTarefas: React.Dispatch<Re
             required
           />
         </div>
-        <Botao>Adicionar</Botao>
+        <Botao type='submit'>Adicionar</Botao>
       </form>
     )
   }
