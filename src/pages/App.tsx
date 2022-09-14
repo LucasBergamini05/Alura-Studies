@@ -14,13 +14,28 @@ export default function App() {
     setTarefas(tarefas => tarefas.map(tarefa => ({...tarefa, selecionado: tarefa.id === tarefaSelecionada?.id ? true : false})));
   }
 
+  function finalizaTarefa(){
+    if(selecionado){
+      setTarefas(tarefasAnteiores => 
+        tarefasAnteiores.map(tarefa=>{
+          if(selecionado.id == tarefa.id){
+            return {...tarefa,  completo: true, selecionado: false}
+          }
+          return tarefa
+        })
+      )
+    }
+  }
+
   return (
     <div className={style.AppStyle}>
       <Formulario setTarefas={setTarefas}/>
       <Lista 
         tarefas={tarefas}
         selecionaTarefa={selecionaTarefa}/>
-      <Cronometro selecionado={selecionado}/>
+      <Cronometro 
+        finalizaTarefa={finalizaTarefa}
+        selecionado={selecionado}/>
     </div>
   );
 }
