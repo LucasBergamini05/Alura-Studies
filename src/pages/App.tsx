@@ -23,7 +23,8 @@ export default function App() {
           }
           return tarefa
         })
-      )
+      );
+      setSelecionado(undefined);
     }
   }
 

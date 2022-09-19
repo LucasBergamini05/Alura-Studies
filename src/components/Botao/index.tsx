@@ -4,11 +4,12 @@ interface IProps {
   type?: 'submit' | 'reset' | 'button' | undefined,
   onClick?: ()=>void,
   children:  React.ReactNode,
+  className?: string
 }
 
-export default function Botao ({ type = 'button', onClick, children }: IProps) {  
+export default function Botao ({ type = 'button', onClick, children, className }: IProps) {  
   return (
-    <button type={type} onClick={onClick} className={style.botao}>
+    <button type={type} onClick={onClick} className={`${style.botao} ${className}`}>
       {children}
     </button>
   );

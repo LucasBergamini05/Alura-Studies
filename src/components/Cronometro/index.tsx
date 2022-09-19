@@ -23,16 +23,15 @@ export default function Cronometro({selecionado, finalizaTarefa}: Props) {
 
   useInterval({callback: regressiva, delay: contando? 1000 : null});
   
-  function controlaRegressiva(controle: boolean){
+  function controlaRegressiva(controle: boolean, pausar: boolean = false){
     if(selecionado){
       setContando(controle);
-      if(!controle)
+      if( !controle && !pausar )
         setTempo(TimeToSeconds(selecionado?.tempo));
     }
   }
 
   function regressiva(){
-    console.log(tempo)
     if(tempo > 0)
       return setTempo(tempo-1); 
 
@@ -46,17 +45,33 @@ export default function Cronometro({selecionado, finalizaTarefa}: Props) {
       <div className={style.relogioWrapper}>
         <Relogio tempo={tempo}/>
       </div>
-      <Botao onClick= 
-      {
-        contando ? 
-        ()=> {
-          controlaRegressiva(false);
-        } : ()=> {
-          controlaRegressiva(true);
-        }
-      }>
-        {contando ? 'Parar' : 'Começar'}
-      </Botao>
+      <div className={style.container}>
+        <Botao onClick= 
+        {
+          contando ? 
+          ()=> {
+            controlaRegressiva(false);
+          } : ()=> {
+            controlaRegressiva(true);
+          }
+        }>
+          {contando ? 'Parar' : 'Começar'}
+        </Botao>
+
+        <Botao 
+        className={contando ? '' : style.invisivel}
+        onClick= 
+        {
+          contando ? 
+          ()=> {
+            controlaRegressiva(false, true);
+          } : ()=> {
+            controlaRegressiva(true);
+          }
+        }>
+          Pausar
+        </Botao>
+      </div>
     </div>
   )
 }
